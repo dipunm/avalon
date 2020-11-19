@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [apiMessage, setApiMessage] = useState<string | null>(null);
+  useEffect(() => {
+    fetch('/ping')
+      .then(resp => resp.text())
+      .then(setApiMessage)
+  }, [setApiMessage]);
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +25,13 @@ function App() {
         >
           Learn React
         </a>
+        <br />
+        <fieldset>
+          <legend>Message from server:</legend>
+          {apiMessage && <pre>
+            {apiMessage}
+          </pre>}
+        </fieldset>
       </header>
     </div>
   );

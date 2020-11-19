@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "../build",
+    "skipLibCheck": true,
+    "experimentalDecorators": true
+  },
+  "files": ["index.ts"],
+  "include": ["../global.d.ts"]
+}
